@@ -1,20 +1,17 @@
-#find max sum of size k
+arr = [1, 2, 3, 4]
+target = 8
+n = len(arr)
+min_length = float('inf')
+for start in range(n):
 
-arr = [2, 1, 5, 1, 3, 2]
-k = 3
+    for end in range(start+1, n+1):
 
-window_sum = sum(arr[:k]) #[2 1 5]
-max_sum = window_sum
-max_subArray = arr[:k]
+        # iterate from start to end
+        subarray = arr[start:end]
+        s = sum(subarray)
+        if(s >= target):
+            # print(subarray, s)
+            #minLength
+            min_length = min(min_length, len(subarray))
 
-for i in range(k, len(arr)):
-
-    window_sum = window_sum + arr[i] - arr[i-k]
-
-    # max_sum = max(max_sum, window_sum)
-
-    if window_sum > max_sum:
-        max_sum = window_sum
-        max_subArray = arr[i-k+1:i+1]
-print(max_sum)
-print(max_subArray)
+print(min_length)

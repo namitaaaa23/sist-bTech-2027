@@ -6,25 +6,28 @@ public class Sample {
 
 	public static void main(String[] args) {
 		
-		int[] arr = {2, 1, 5, 1, 3, 2};
+		int array[] = {1, 2, 3, 4};
 		
-		int k = 3;
+		int target = 8;
 		
-		int windowSum = 0;
+		int n = array.length;	
 		
-		for(int i=0; i<k; i++)
-			windowSum += arr[i];
-		
-		int maxSum = windowSum;
-		
-		for(int i=k; i<arr.length; i++) {
-			
-			windowSum = windowSum + arr[i] - arr[i-k];
-			
-			maxSum = Math.max(maxSum, windowSum);
+		for(int start=0; start<n; start++) {			
+						
+			for(int end=start+1; end<n+1; end++) {
+				int sum = 0;
+				System.out.print("[");
+				//iterate start to end
+				for(int i=start; i<end; i++) {
+					System.out.print(array[i]);
+					sum += array[i];
+					if(i<end-1)
+						System.out.print(",");
+				}
+				System.out.println("]" + " " + sum);
+				
+			}
 		}
-		
-		System.out.println(maxSum);
 		
 	}
 }
