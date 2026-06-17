@@ -1,17 +1,6 @@
-arr = [1, 2, 3, 4]
-target = 8
-n = len(arr)
-min_length = float('inf')
-for start in range(n):
+points = [[10,16],[2,8],[1,6],[7,12]]
 
-    for end in range(start+1, n+1):
+points.sort(key = lambda point:point[0])
 
-        # iterate from start to end
-        subarray = arr[start:end]
-        s = sum(subarray)
-        if(s >= target):
-            # print(subarray, s)
-            #minLength
-            min_length = min(min_length, len(subarray))
 
-print(min_length)
+print(points)
